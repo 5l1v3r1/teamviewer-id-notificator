@@ -32,6 +32,8 @@ PASSWORD = ""
 FROM = ''
 TO = [""]
 
+SERVER = 'smtp.gmail.com:587'
+
 SUBJECT = "new teamviewer id on {}".format(TV_ID)
 TEXT = "Teamviwer istallation on {} has now id {}"
 
@@ -98,7 +100,7 @@ for i in range(0, 10):
 
 if on:
     logger.info("sending mail")
-    server = smtplib.SMTP('smtp.gmail.com:587')
+    server = smtplib.SMTP(SERVER)
     server.ehlo()
     server.starttls()
     server.login(USERNAME, PASSWORD)
